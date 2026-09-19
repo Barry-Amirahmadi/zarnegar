@@ -11,7 +11,7 @@
  * dependencies and adding `sharp` or `resvg` to draw one 1200×630 rectangle is
  * a bad trade. Node's own `zlib` is all a PNG encoder needs.
  *
- * The card is the same art direction as `generate-media.mjs` — sormeh ground,
+ * The card is the same art direction as `generate-media.mjs` — shabaq ground,
  * a defocused tonal mass, light falling from the top-right, which is the RTL
  * reading origin — with the brand mark from `src/app/icon.svg` over it. It
  * carries no type: rendering Persian into a generated raster needs a font
@@ -34,9 +34,9 @@ const W = 1200;
 const H = 630;
 
 /** Kept in sync with src/app/tokens.css and scripts/generate-media.mjs. */
-const SORMEH = [0x14, 0x1a, 0x2b];
-const TONE = [0x7f, 0xb3, 0xac];
-const CHALK = [0xea, 0xe9, 0xe3];
+const SHABAQ = [0x1a, 0x16, 0x11];
+const TONE = [0xa7, 0x85, 0x49];
+const CHALK = [0xe3, 0xe1, 0xdd];
 
 /* -------------------------------------------------------------------------- */
 /*  PNG encoding                                                              */
@@ -178,9 +178,9 @@ const markY = (v) => originY + v * scale;
 
 for (let y = 0; y < H; y++) {
   for (let x = 0; x < W; x++) {
-    px[0] = SORMEH[0];
-    px[1] = SORMEH[1];
-    px[2] = SORMEH[2];
+    px[0] = SHABAQ[0];
+    px[1] = SHABAQ[1];
+    px[2] = SHABAQ[2];
 
     // 1 — the tonal fall, top-right to bottom-left.
     const fall = clamp01((x / W) * 0.55 + (1 - y / H) * 0.45);
@@ -191,9 +191,16 @@ for (let y = 0; y < H; y++) {
     over(px, [255, 255, 255], glow(x, y, 1010, 60, 380) * 0.16);
     over(px, [0, 0, 0], glow(x, y, 120, 690, 330) * 0.24);
 
-    // 3 — the mark, the one crisp thing on the card.
-    over(px, TONE, disc(x, y, markX(19), markY(13), 7 * scale));
-    over(px, CHALK, disc(x, y, markX(12), markY(21), 4 * scale) * 0.85);
+    // 3 — the mark, the one crisp thing on the card: a band seen face-on
+    //     with its stone set above it. The ring is an annulus rather than a
+    //     stroked circle because everything on this card is coverage maths —
+    //     outer disc minus inner disc, clamped so the subtraction cannot go
+    //     negative in the antialiased pixel where both edges overlap.
+    const ring =
+      disc(x, y, markX(15), markY(18), 8 * scale) -
+      disc(x, y, markX(15), markY(18), 5 * scale);
+    over(px, TONE, Math.max(0, ring));
+    over(px, CHALK, disc(x, y, markX(22), markY(9), 3.5 * scale) * 0.9);
 
     // 4 — the light source at 78% / 18%, and the vignette that closes it.
     // Both smooth for the same reason as the masses above: the earlier version

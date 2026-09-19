@@ -29,11 +29,11 @@
 }
 
 .btn--primary {
-  background-color: var(--color-sormeh);
+  background-color: var(--color-shabaq);
   color: var(--color-chalk);
 }
 .btn--primary:hover {
-  background-color: color-mix(in srgb, var(--color-sormeh) 84%, var(--color-firouzeh));
+  background-color: color-mix(in srgb, var(--color-shabaq) 84%, var(--color-zar));
 }
 
 .btn--secondary {
@@ -46,11 +46,11 @@
 }
 
 .on-dark .btn--primary {
-  background-color: var(--color-firouzeh-bright);
-  color: var(--color-sormeh);
+  background-color: var(--color-zar-bright);
+  color: var(--color-shabaq);
 }
 .on-dark .btn--primary:hover {
-  background-color: color-mix(in srgb, var(--color-firouzeh-bright) 82%, #ffffff);
+  background-color: color-mix(in srgb, var(--color-zar-bright) 82%, #ffffff);
 }
 .on-dark .btn--secondary {
   border-color: var(--color-line-dark-strong);
@@ -82,13 +82,13 @@
   transition: border-color var(--dur) var(--ease-out);
 }
 .link-lead:hover .link-lead__text {
-  border-color: var(--color-firouzeh-deep);
+  border-color: var(--color-zar-deep);
 }
 .on-dark .link-lead__text {
   border-bottom-color: var(--color-line-dark-strong);
 }
 .on-dark .link-lead:hover .link-lead__text {
-  border-bottom-color: var(--color-firouzeh-bright);
+  border-bottom-color: var(--color-zar-bright);
 }
 
 /* ---- Name link — a heading that navigates ------------------------------- */
@@ -183,7 +183,7 @@
   border-block-start-color: var(--color-line-dark);
 }
 .group-media:hover .collection-item__meta {
-  border-block-start-color: var(--color-firouzeh-bright);
+  border-block-start-color: var(--color-zar-bright);
 }
 
 /* ---- Section header rule ------------------------------------------------ */
@@ -211,14 +211,14 @@
   content: "";
   inline-size: 2.25rem;
   block-size: 1px;
-  background-color: var(--color-firouzeh);
+  background-color: var(--color-zar);
   flex: none;
 }
 .on-dark .eyebrow {
   color: var(--color-chalk-2);
 }
 .on-dark .eyebrow::before {
-  background-color: var(--color-firouzeh-bright);
+  background-color: var(--color-zar-bright);
 }
 
 /* ---- Tone swatch — the product's own shade, shown literally -------------- */
@@ -237,7 +237,7 @@
   position: sticky;
   inset-block-start: 0;
   z-index: 50;
-  background-color: color-mix(in srgb, var(--color-bone) 82%, transparent);
+  background-color: color-mix(in srgb, var(--color-sadaf) 82%, transparent);
   backdrop-filter: blur(14px);
   border-block-end: 1px solid transparent;
   transition:
@@ -246,7 +246,7 @@
 }
 .site-header[data-scrolled="true"] {
   border-block-end-color: var(--color-line);
-  background-color: color-mix(in srgb, var(--color-bone) 94%, transparent);
+  background-color: color-mix(in srgb, var(--color-sadaf) 94%, transparent);
 }
 
 .nav-link {
@@ -265,7 +265,7 @@
   inset-block-end: 0.55rem;
   inset-inline: var(--space-3);
   block-size: 1px;
-  background-color: var(--color-firouzeh-deep);
+  background-color: var(--color-zar-deep);
   scale: 0 1;
   transform-origin: var(--nav-origin, right);
   transition: scale var(--dur) var(--ease-out);
@@ -287,7 +287,7 @@
   z-index: 60;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-sormeh);
+  background-color: var(--color-shabaq);
   color: var(--color-chalk);
   transform: translate3d(calc(var(--flow-start) * 100%), 0, 0);
   visibility: hidden;
@@ -365,7 +365,7 @@
   border-block-start-color: var(--color-line-dark);
 }
 .gallery-tile:hover .gallery-tile__meta {
-  border-block-start-color: var(--color-firouzeh);
+  border-block-start-color: var(--color-zar);
 }
 
 /* ---- Lightbox ----------------------------------------------------------- */
@@ -420,3 +420,38 @@
   color: var(--color-chalk);
 }
 
+
+/* ---- Piece views -------------------------------------------------------- */
+
+/* The strip of other angles under a piece's primary photograph.
+   `cursor: pointer` is explicit rather than inherited from the `button` reset
+   in @layer base: this rule lives in @layer components, which wins over base,
+   and a sibling component class setting `cursor` on a tile is exactly how a
+   pressable picture ends up looking unpressable. State it where the class is. */
+.product-views {
+  margin-block-start: var(--space-5);
+}
+
+.product-views__strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: var(--space-3);
+  max-inline-size: 28rem;
+}
+
+.product-views__thumb {
+  display: block;
+  inline-size: 100%;
+  cursor: pointer;
+  transition: opacity var(--dur) var(--ease-out);
+}
+
+.product-views__thumb:hover {
+  opacity: 0.82;
+}
+
+/* The thumbnails are small, so the mat and the lift the raised plane gives a
+   full-size frame read as clutter at this scale. The hairline stays. */
+.product-views__thumb .img-frame {
+  box-shadow: none;
+}

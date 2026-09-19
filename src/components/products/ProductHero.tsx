@@ -7,6 +7,7 @@ import { ShadeField } from "@/components/motion/ShadeField";
 import { Reveal } from "@/components/motion/Reveal";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import { ToneSwatch } from "@/components/ui/ToneSwatch";
+import { ProductViews } from "@/components/products/ProductViews";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 
@@ -62,6 +63,11 @@ export function ProductHero({ product }: { product: ResolvedProduct }) {
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 priority
               />
+              {/* Directly under the picture it belongs to, not in the copy
+                  column: the strip is a control for this image, and putting
+                  it beside the prose would separate it from the thing it
+                  changes. Renders nothing when the piece has no `views`. */}
+              <ProductViews product={product} />
             </div>
 
             {/* Six columns at `lg`, five from `xl`. At 1024 the five-column

@@ -69,6 +69,20 @@ export interface Product {
    */
   tone?: string;
   image: MediaAsset;
+  /**
+   * Additional views of the same object, shown on the detail page only.
+   *
+   * `image` stays required and stays the primary: every listing, card,
+   * related-piece and share card reads it, and none of them should have to
+   * decide which of several photographs to show. `views` is what a buyer opens
+   * once they are already looking at one piece — the other angles a single
+   * physical object has and a bottle of serum does not.
+   *
+   * Optional, and absent is the normal case for a piece an editor has just
+   * created. Nothing on the site degrades when it is missing: the detail page
+   * simply renders no thumbnail strip.
+   */
+  views?: MediaAsset[];
   /** Optional for the same reason as `tone`. */
   layout?: ProductLayout;
   status: "published" | "draft";
@@ -310,6 +324,15 @@ export interface UiStrings {
     closeMenu: string;
     /** The mobile panel is a dialog and needs its own name. */
     menuDialog: string;
+  };
+  /** The thumbnail strip on a piece's detail page. */
+  views: {
+    /** Accessible name of the strip, which is a list of controls. */
+    strip: string;
+    /** Prefixes each thumbnail's accessible name. */
+    open: string;
+    /** Between position and total inside that name. */
+    of: string;
   };
   gallery: {
     lightbox: string;

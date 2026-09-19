@@ -1,72 +1,92 @@
 /* ============================================================================
-   PARNIAN — DESIGN TOKENS
+   ZARNEGAR — DESIGN TOKENS
    Single source of truth. Nothing in the app may hardcode a colour, a size,
    a duration or an easing curve; it references a token from this file.
 
    Palette rationale — the colours are named from the subject's own world:
-     بُن  / bone     unglazed porcelain, the ground the brand speaks on
-     سُرمه / sormeh   Persian kohl — the oldest cosmetic in the region.
-                     "سرمه‌ای" is literally a Persian colour word.
-     فیروزه / firouzeh Persian turquoise, desaturated to a mineral sage.
-   One accent only. No pink, no rose gold, no metallic gradient.
+     صدف  / sadaf    nacre, mother-of-pearl. The pale warm ground a jeweller
+                     lays a piece on before it is set.
+     شبق  / shabaq   jet — the black gemstone, and a Persian colour word for
+                     that exact black. The case a piece is shown in.
+     زر   / zar      gold, aged rather than new. The brand is زرنگار, "the one
+                     that adorns with gold", so the accent carries the name.
+   One accent only. No second metal, no gradient, no metallic effect — a
+   simulated shine on a screen reads as costume jewellery, not as gold.
+
+   Every ratio below was measured, not estimated, and each token is measured
+   against the *worst* ground it can appear on — `sadaf-deep` on the light side
+   and `shabaq-raised` on the dark — rather than against the base ground only.
+   The three-plane depth system means a token that passes on the base plane can
+   still fail one plane over.
    ========================================================================= */
 
 @theme {
   /* ---- Colour: light ground ------------------------------------------- */
-  --color-bone: #eae9e3; /* primary page ground */
-  --color-bone-deep: #dddbd2; /* secondary ground, image mats */
-  --color-bone-raised: #f3f2ee; /* raised surface */
+  --color-sadaf: #f2eee6; /* primary page ground */
+  --color-sadaf-deep: #e5dfd2; /* secondary ground, image mats */
+  --color-sadaf-raised: #faf8f3; /* raised surface */
 
   /* ---- Colour: dark ground -------------------------------------------- */
-  --color-sormeh: #141a2b; /* primary dark ground + primary ink */
-  --color-sormeh-deep: #0d1220; /* deepest ground, closing CTA */
-  --color-sormeh-raised: #1e2539; /* raised surface on dark */
+  --color-shabaq: #1a1611; /* primary dark ground + primary ink */
+  --color-shabaq-deep: #12100c; /* deepest ground, closing CTA */
+  --color-shabaq-raised: #262117; /* raised surface on dark */
 
   /* ---- Colour: text ---------------------------------------------------- */
-  --color-ink: #141a2b; /* on light — 15.5:1 */
-  --color-ink-2: #545c6e; /* body — 5.5:1 on bone, 4.8:1 on bone-deep */
-  --color-ink-3: #565c6c; /* metadata — 5.4:1 on bone, 4.8:1 on bone-deep */
-  --color-chalk: #e3e2dc; /* on dark  — 13.4:1 */
-  --color-chalk-2: #9ba2b0; /* on dark  —  6.8:1 */
+  --color-ink: #1a1611; /* on light — 15.6:1 on sadaf, 13.6:1 on sadaf-deep */
+  --color-ink-2: #655c51; /* body — 5.7:1 on sadaf, 4.9:1 on sadaf-deep */
+  --color-ink-3: #645c57; /* metadata — 5.7:1 on sadaf, 4.9:1 on sadaf-deep */
+  --color-chalk: #e3e1dd; /* on dark — 13.8:1 on shabaq, 12.3:1 on shabaq-raised */
+  --color-chalk-2: #938a7e; /* on dark — 5.3:1 on shabaq, 4.7:1 on shabaq-raised */
 
   /* ---- Colour: accent --------------------------------------------------- */
-  --color-firouzeh: #5f8a85; /* 3.2:1 — large text, rules, non-text UI only */
-  --color-firouzeh-deep: #3f6864; /* 5.1:1 — safe for small text on light */
-  --color-firouzeh-bright: #7fb3ac; /* 7.4:1 — accent on dark ground */
+  --color-zar: #8a6e3c; /* 4.2:1 on sadaf, 3.6:1 on sadaf-deep — large text, rules, non-text UI only */
+  --color-zar-deep: #765e33; /* 5.3:1 on sadaf, 4.6:1 on sadaf-deep — safe for small text */
+  --color-zar-bright: #a78549; /* 5.2:1 on shabaq, 4.6:1 on shabaq-raised — accent on dark */
 
   /* ---- Colour: lines ---------------------------------------------------- */
-  --color-line: color-mix(in srgb, #141a2b 14%, transparent);
-  --color-line-strong: color-mix(in srgb, #141a2b 30%, transparent);
-  --color-line-dark: color-mix(in srgb, #e3e2dc 16%, transparent);
-  --color-line-dark-strong: color-mix(in srgb, #e3e2dc 34%, transparent);
+  --color-line: color-mix(in srgb, #1a1611 14%, transparent);
+  --color-line-strong: color-mix(in srgb, #1a1611 30%, transparent);
+  --color-line-dark: color-mix(in srgb, #e3e1dd 16%, transparent);
+  --color-line-dark-strong: color-mix(in srgb, #e3e1dd 34%, transparent);
 
   /* ---- Colour: state ---------------------------------------------------- */
-  --color-focus: #3f6864;
-  --color-focus-dark: #7fb3ac;
+  --color-focus: #765e33; /* 5.3:1 on sadaf — clears the 3:1 non-text minimum */
+  --color-focus-dark: #a78549; /* 5.2:1 on shabaq */
 
   /* ---- Type families ----------------------------------------------------
-     Markazi Text  — Persian Naskh with calligraphic contrast. Display only.
-     Vazirmatn     — neutral Persian/Latin sans. Body, UI, all small sizes.
+     Amiri            — classical Naskh, high stroke contrast. Display only.
+     Noto Sans Arabic — neutral Persian/Latin sans. Body, UI, all small sizes.
      Wired to next/font in layout.tsx; the vars are declared there.          */
-  --font-display: var(--font-markazi), "Markazi Text", serif;
-  --font-body: var(--font-vazir), "Vazirmatn", system-ui, sans-serif;
+  --font-display: var(--font-amiri), "Amiri", serif;
+  --font-body: var(--font-noto-arabic), "Noto Sans Arabic", system-ui, sans-serif;
 
-  /* ---- Type scale — fluid, no breakpoint jumps -------------------------- */
-  --text-display: clamp(2.75rem, 6.2vw, 5.5rem);
-  --text-h1: clamp(2.25rem, 5vw, 4rem);
-  --text-h2: clamp(2rem, 4.4vw, 3.5rem);
-  --text-h3: clamp(1.375rem, 2.2vw, 2rem);
+  /* ---- Type scale — fluid, no breakpoint jumps --------------------------
+     Amiri sets smaller than Markazi at the same nominal size: its Arabic
+     glyphs sit low in the em with a great deal of room reserved above for
+     the marks a vowelled text would carry, and this text is unvowelled. The
+     display sizes are raised to compensate. The body scale is unchanged —
+     Noto Sans Arabic and Vazirmatn have near-identical metrics.             */
+  --text-display: clamp(3rem, 6.8vw, 6rem);
+  --text-h1: clamp(2.5rem, 5.5vw, 4.4rem);
+  --text-h2: clamp(2.125rem, 4.8vw, 3.75rem);
+  --text-h3: clamp(1.5rem, 2.4vw, 2.125rem);
   --text-lead: clamp(1.0625rem, 1.5vw, 1.3125rem);
   --text-body: 1.0625rem; /* 17px — Persian reads small at 16 */
   --text-sm: 0.9375rem;
   --text-meta: 0.8125rem;
   --text-micro: 0.6875rem; /* Latin labels only, always tracked */
 
-  /* ---- Line height — Persian needs more air than Latin ------------------ */
-  --leading-display: 1.16; /* Markazi is compact; tight is safe here */
-  --leading-heading: 1.34;
+  /* ---- Line height — Persian needs more air than Latin ------------------
+     Amiri is a classical Naskh: its ligatures and final forms swing well
+     below the baseline, and it reserves height above the line for vowel
+     marks even in unvowelled text. PARNIAN's 1.16 was tuned for Markazi,
+     which is compact in both directions; carried over unchanged it risks
+     a descender meeting the line beneath it. Verified against the built
+     output at every viewport before this was called done.                   */
+  --leading-display: 1.3;
+  --leading-heading: 1.4;
   --leading-body: 1.95;
-  --leading-tight: 1.6;
+  --leading-tight: 1.62;
 
   /* ---- Spacing scale ---------------------------------------------------- */
   --space-1: 0.25rem;
@@ -81,9 +101,13 @@
   --space-10: 8rem;
   --space-11: 12rem;
 
-  /* ---- Layout rhythm ---------------------------------------------------- */
-  --section-y: clamp(5.5rem, 11vw, 11rem);
-  --section-y-tight: clamp(3.5rem, 7vw, 7rem);
+  /* ---- Layout rhythm ----------------------------------------------------
+     Denser than PARNIAN by roughly 15%. A skincare collection is a routine
+     with air between its steps; a jewellery catalogue is a case of objects,
+     and objects in a case sit close together. `--measure` is unchanged: the
+     copy is the same length per piece, only the gaps around it close up.    */
+  --section-y: clamp(4.75rem, 9.4vw, 9.375rem);
+  --section-y-tight: clamp(3rem, 6vw, 6rem);
   --gutter: clamp(1.25rem, 4.5vw, 4.5rem); /* page padding */
   --grid-gap: clamp(1rem, 2vw, 2rem);
   --container-max: 1560px;
@@ -96,8 +120,8 @@
   --radius-full: 999px;
 
   /* ---- Elevation — used sparingly; this design leans on rules, not shadow */
-  --shadow-lift: 0 1px 2px color-mix(in srgb, #141a2b 6%, transparent),
-    0 16px 40px -24px color-mix(in srgb, #141a2b 30%, transparent);
+  --shadow-lift: 0 1px 2px color-mix(in srgb, #1a1611 6%, transparent),
+    0 16px 40px -24px color-mix(in srgb, #1a1611 30%, transparent);
 
   /* ---- Motion ----------------------------------------------------------- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -133,5 +157,5 @@
 @property --shade {
   syntax: "<color>";
   inherits: true;
-  initial-value: #2a3550;
+  initial-value: #2e2619;
 }

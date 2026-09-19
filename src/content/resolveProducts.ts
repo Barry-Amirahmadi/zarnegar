@@ -38,13 +38,13 @@ const LAYOUT_CYCLE: readonly ProductLayout[] = ["tall", "wide", "feature", "comp
  * Shade for a product with no `tone`.
  *
  * Deliberately a near-neutral deepening of the dark ground rather than an
- * invented colour: a product whose shade nobody chose should read as having no
+ * invented colour: a piece whose shade nobody chose should read as having no
  * particular atmosphere, not as having the wrong one. It also cannot reduce
  * text contrast, since it is darker than the ground it washes over.
  *
  * Kept in sync with the `@property --shade` initial-value in tokens.css.
  */
-export const FALLBACK_TONE = "#2A3550";
+export const FALLBACK_TONE = "#2E2619";
 
 export function resolveProduct(product: Product, index: number): ResolvedProduct {
   return {

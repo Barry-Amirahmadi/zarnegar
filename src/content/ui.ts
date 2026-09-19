@@ -22,11 +22,20 @@ export const ui: UiStrings = {
   nav: {
     primary: "پیمایش اصلی",
     footer: "پیمایش پانوشت",
-    /** Follows the brand name: «پرنیان — صفحهٔ اصلی». */
+    /** Follows the brand name: «زرنگار — صفحهٔ اصلی». */
     home: "صفحهٔ اصلی",
     openMenu: "گشودن فهرست",
     closeMenu: "بستن فهرست",
     menuDialog: "فهرست اصلی",
+  },
+
+  views: {
+    /** Accessible name of the thumbnail strip, which is a list of controls. */
+    strip: "نماهای دیگر این قطعه",
+    /** Prefixes each thumbnail's accessible name: «نمای ۲ از ۳». */
+    open: "نمای",
+    /** Between position and total, the same word the lightbox counter uses. */
+    of: "از",
   },
 
   gallery: {

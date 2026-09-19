@@ -16,56 +16,58 @@ import type {
 } from "@/types/content";
 
 /**
- * PLACEHOLDER CONTENT — Phase 01.
+ * PLACEHOLDER CONTENT.
  *
  * Every line below is a *brand position* an editor can rewrite, not a factual
- * claim. Nothing states an ingredient, a test result, a certification or a
- * number, because none was supplied. Read this file as the copy deck.
+ * claim. Nothing states a founding year, a hallmark, a certificate, an award or
+ * a number about the atelier, because none was supplied. Read this file as the
+ * copy deck. Attributes of the *pieces* live in `products.ts` and are a
+ * different category — see the note at the top of that file.
  *
- * TYPING RULE (Phase 03): every export is annotated with an interface from
+ * TYPING RULE: every export is annotated with an interface from
  * `@/types/content`, never left to inference. An inferred type describes the
  * literal that happens to be written here; a declared one describes what any
  * source — this file, or a CMS response — has to provide. Only the second is a
  * contract, and the second is the whole claim of the content layer.
  *
- * LINK RULE (Phase 02): every `href` here is written from the site root — a
- * route as `/products/`, an in-page target as `/#contact`. Bare `#contact`
- * worked while the site was a single page and silently resolves to nothing the
- * moment the same component renders on `/products/`. `next/link` applies the
- * deployment base path to a root-relative href, so this form is also the only
- * one that survives being served from a GitHub Pages project subpath.
+ * LINK RULE: every `href` here is written from the site root — a route as
+ * `/products/`, an in-page target as `/#contact`. Bare `#contact` worked while
+ * the site was a single page and silently resolves to nothing the moment the
+ * same component renders on `/products/`. `next/link` applies the deployment
+ * base path to a root-relative href, so this form is also the only one that
+ * survives being served from a GitHub Pages project subpath.
  */
 
 export const hero: HeroContent = {
-  eyebrow: "مجموعهٔ مراقبت از پوست",
-  heading: "زیبایی، آهسته اتفاق می‌افتد",
-  lead: "پرنیان مجموعه‌ای کوچک از محصولات مراقبت روزمره است. هر فرمول کوتاه نوشته می‌شود و تا زمانی که در استفادهٔ هر روز جای خودش را پیدا نکند، منتشر نمی‌شود.",
-  primary: { label: "مشاهدهٔ مجموعه", href: "/#products" },
-  secondary: { label: "دربارهٔ پرنیان", href: "/#brand" },
+  eyebrow: "کارگاه طلا و سنگ",
+  heading: "هر قطعه، یک بار ساخته می‌شود",
+  lead: "زرنگار کارگاه کوچکی است. قطعه‌ها دستی ساخته می‌شوند، پس تعدادشان کم است و هیچ‌کدام دقیقاً شبیه قبلی در نمی‌آید.",
+  primary: { label: "دیدن مجموعه", href: "/#products" },
+  secondary: { label: "دربارهٔ کارگاه", href: "/#brand" },
   scrollHint: "پیمایش کنید",
   image: {
     src: "/media/hero-main.svg",
-    alt: "نمای اصلی مجموعهٔ پرنیان در نور طبیعی",
+    alt: "قطعه‌ای از مجموعهٔ زرنگار روی زمینهٔ تیره",
     ratio: "4/5",
   },
   inset: {
     src: "/media/hero-inset.svg",
-    alt: "نمای نزدیک از بافت یکی از محصولات",
+    alt: "نمای نزدیک از نقش قلم‌زده روی طلا",
     ratio: "1/1",
   },
-  insetCaption: "بافت کرم روز",
+  insetCaption: "نقش ترنج، قلم‌زده",
 };
 
 export const statement: StatementContent = {
-  text: "ما کم می‌سازیم. محصول تازه وقتی به مجموعه اضافه می‌شود که جای خالی واقعی باشد.",
-  attribution: "پرنیان",
+  text: "طلا را می‌شود دوباره آب کرد. کاری که رویش شده، نه. برای همین کار مهم‌تر از فلز است.",
+  attribution: "زرنگار",
 };
 
 export const showcase: ShowcaseContent = {
   eyebrow: "مجموعه",
-  heading: "پنج محصول، برای یک روتین کامل",
-  lead: "هر محصول یک نقش مشخص در روتین دارد. ترتیب استفاده روی هر بسته نوشته شده است.",
-  linkLabel: "مشاهدهٔ محصول",
+  heading: "نُه قطعه، سه دسته",
+  lead: "انگشتر، گردن‌آویز و گوشواره. وزن، عیار و سنگ هر قطعه در صفحهٔ خودش نوشته شده است.",
+  linkLabel: "دیدن قطعه",
   /** The homepage showcase is the narrative cut of the collection; this is the
    *  way out of it into the full collection page. */
   allLabel: "صفحهٔ مجموعه",
@@ -76,63 +78,63 @@ export const showcase: ShowcaseContent = {
  * Collection page — the full catalogue.
  *
  * Deliberately a different voice from `showcase` above. The homepage sequences
- * the products as a routine and tells a story about it; this page is the
+ * the pieces and tells a story about how they are made; this page is the
  * register of everything that exists, so it opens by describing the collection
- * rather than by arguing for it. Nothing here counts the products in prose —
- * the count is rendered from the data, so it cannot go stale.
+ * rather than by arguing for it. Nothing here counts the pieces in prose — the
+ * count is rendered from the data, so it cannot go stale.
  */
 export const collection: CollectionContent = {
   eyebrow: "مجموعه",
-  heading: "همهٔ محصولات، کنار هم",
-  lead: "هر محصول برای یک مرحله از روتین ساخته شده است. برای دیدن جزئیات هر کدام، وارد صفحهٔ آن شوید.",
+  heading: "همهٔ قطعه‌ها، کنار هم",
+  lead: "برای دیدن وزن، عیار، سنگ و اندازهٔ هر قطعه، وارد صفحهٔ آن شوید.",
   /** Accessible name of the category index; it is a navigation landmark. */
-  indexLabel: "دسته‌بندی محصولات",
+  indexLabel: "دسته‌بندی قطعه‌ها",
   /** Accessible name of the list the index points into. */
-  listLabel: "محصولات",
-  /** Follows the product count, e.g. «۵ محصول». */
-  countLabel: "محصول",
+  listLabel: "قطعه‌ها",
+  /** Follows the piece count, e.g. «۹ قطعه». */
+  countLabel: "قطعه",
   seo: {
     title: "مجموعه",
-    description: "فهرست کامل محصولات پرنیان، همراه با دستهٔ هر محصول.",
+    description: "فهرست کامل قطعه‌های زرنگار، همراه با دستهٔ هر قطعه.",
   },
 };
 
 /**
- * Product detail page — labels and the inquiry message.
+ * Piece detail page — labels and the inquiry message.
  *
- * The section headings are deliberately modest. «ادامهٔ مجموعه» rather than
- * «محصولات مرتبط», because with five products in five categories nothing
- * establishes a relation yet, and a heading that claims one is the kind of
- * small dishonesty a reader notices.
+ * «ادامهٔ مجموعه» rather than «قطعه‌های مرتبط»: with three pieces per category
+ * a relation does exist, but it is «هم‌دسته», not «مرتبط», and a heading that
+ * claims a curated relationship where the rule is really "same category, next
+ * in order" is the kind of small dishonesty a reader notices.
  */
 export const productPage: ProductPageContent = {
-  detailsHeading: "اطلاعات",
+  detailsHeading: "مشخصات",
   relatedEyebrow: "ادامه",
   relatedHeading: "ادامهٔ مجموعه",
   backLabel: "بازگشت به مجموعه",
   breadcrumbHome: "صفحهٔ اصلی",
-  breadcrumbCollection: "محصولات",
+  breadcrumbCollection: "قطعه‌ها",
   breadcrumbLabel: "مسیر صفحه",
 };
 
 export const inquiry: InquiryContent = {
-  label: "پرسش دربارهٔ این محصول",
-  /** `{product}` is replaced with the product name at render time. */
+  label: "پرسش دربارهٔ این قطعه",
+  /** `{product}` is replaced with the piece name at render time. */
   message: "سلام. دربارهٔ «{product}» سؤال داشتم.",
-  /** The same channel without a product in hand — used on the about page. */
+  /** The same channel without a piece in hand — used on the about page. */
   generalLabel: "نوشتن در واتساپ",
-  generalMessage: "سلام. سؤالی دربارهٔ محصول‌های پرنیان داشتم.",
+  generalMessage: "سلام. سؤالی دربارهٔ قطعه‌های زرنگار داشتم.",
   /** Appended for screen readers to any link that leaves the site. */
   newWindow: "در پنجرهٔ تازه باز می‌شود",
 };
 
 export const brand: BrandContent = {
-  eyebrow: "دربارهٔ پرنیان",
+  eyebrow: "دربارهٔ زرنگار",
   heading: "روش کار ما",
-  lead: "چهار اصلی که در هر تصمیم، از فرمول تا بسته‌بندی، به آن برمی‌گردیم.",
+  lead: "چهار چیزی که در هر قطعه، از انتخاب سنگ تا آخرین پرداخت، به آن برمی‌گردیم.",
   image: {
     src: "/media/values-texture.svg",
-    alt: "نمای نزدیک از بافت یکی از محصولات پرنیان",
+    alt: "نمای نزدیک از سطح کارشدهٔ یکی از قطعه‌های زرنگار",
     ratio: "3/4",
   },
 };
@@ -140,30 +142,30 @@ export const brand: BrandContent = {
 export const values: ValueItem[] = [
   {
     id: "v-1",
-    title: "کم، اما تمام",
-    body: "مجموعه کوچک می‌ماند. به‌جای افزودن محصول تازه، فرمول‌های موجود را بازبینی می‌کنیم.",
+    title: "وزن، نوشته می‌شود",
+    body: "وزن و عیار هر قطعه روی صفحهٔ خودش هست. پرسیدنش نباید لازم باشد.",
   },
   {
     id: "v-2",
-    title: "فهرست کامل روی بسته",
-    body: "هر چه در فرمول هست، روی بسته نوشته می‌شود. بدون استثنا و بدون عبارت‌های مبهم.",
+    title: "کار دست، با نشانه‌هایش",
+    body: "قطعهٔ دست‌ساز یکدست ماشینی نیست. این را عیب نمی‌دانیم و صافش نمی‌کنیم.",
   },
   {
     id: "v-3",
-    title: "ساخته برای تکرار",
-    body: "محصولی که قرار است هر روز استفاده شود، باید ساده، سریع و بی‌دردسر باشد.",
+    title: "سنگ، بی‌بزرگ‌نمایی",
+    body: "سنگ را همان‌طور که هست عکس می‌گیریم و همان‌طور که هست توضیح می‌دهیم.",
   },
   {
     id: "v-4",
-    title: "بسته‌بندی ماندگار",
-    body: "ظرف‌ها برای استفادهٔ دوباره طراحی شده‌اند؛ یدک هر محصول جداگانه عرضه می‌شود.",
+    title: "تعمیر، تا همیشه",
+    body: "قطعه‌ای که اینجا ساخته شده، اینجا هم تعمیر می‌شود؛ بدون محدودیت زمانی.",
   },
 ];
 
 export const gallery: GalleryContent = {
   eyebrow: "گالری",
-  heading: "نگاهی از نزدیک",
-  lead: "بافت‌ها، بسته‌بندی و فضای کار — بدون اصلاح رنگ.",
+  heading: "کارگاه، از نزدیک",
+  lead: "مرحله‌های ساخت، سنگ پیش از نشاندن، و جزئیاتی که در اندازهٔ واقعی دیده نمی‌شوند.",
   viewLabel: "بزرگ‌نمایی",
   /** The way out of the homepage band and into the full gallery. */
   allLabel: "صفحهٔ گالری",
@@ -173,49 +175,49 @@ export const gallery: GalleryContent = {
 /**
  * Gallery page.
  *
- * Same six images as the homepage band, and the difference is scale rather than
- * content: the homepage shows them as a wall of tiles, this shows them as
+ * Same eight images as the homepage band, and the difference is scale rather
+ * than content: the homepage shows them as a wall of tiles, this shows them as
  * plates. The copy says so plainly instead of pretending there is more here.
  */
 export const galleryPage: GalleryPageContent = {
   eyebrow: "گالری",
-  heading: "تصویرها، بی‌عجله",
-  lead: "همان تصویرها، بزرگ‌تر از آنچه در صفحهٔ اصلی جا می‌شود. برای تمام‌صفحه، روی هر کدام بزنید.",
+  heading: "تصویرها، بزرگ‌تر",
+  lead: "همان تصویرها، در اندازه‌ای که جزئیات در آن دیده می‌شود. برای تمام‌صفحه، روی هر کدام بزنید.",
   seo: {
     title: "گالری",
-    description: "تصویرهای مجموعهٔ پرنیان — بافت‌ها، بسته‌بندی و فضای کار.",
+    description: "تصویرهای کارگاه زرنگار — مرحله‌های ساخت، سنگ‌ها و جزئیات قطعه‌ها.",
   },
 };
 
 /**
  * About page.
  *
- * Short on purpose. There is no founding year, no founder, no laboratory, no
- * "since" — none of that has been supplied, and a portfolio piece that invents
- * a company history to fill an about page is making the §44.1 mistake in prose
- * instead of in data. What is written here is *position*: how the brand decides
- * what to make, which is something a brand can assert about itself.
+ * Short on purpose. There is no founding year, no founder, no workshop address,
+ * no "since" — none of that has been supplied, and a demo that invents a
+ * company history to fill an about page is making the §44.1 mistake in prose
+ * instead of in data. What is written here is *position*: how the atelier
+ * decides what to make, which is something a brand can assert about itself.
  *
  * It is also not a restatement of the four values on the homepage. Those say
- * what the brand holds to; this says why the collection stays the size it is.
+ * what the atelier holds to; this says why the collection stays this size.
  */
 export const about: AboutContent = {
   eyebrow: "دربارهٔ ما",
-  heading: "چرا مجموعه کوچک است",
-  lead: "مجموعهٔ پرنیان کوچک است و قرار نیست هر فصل بزرگ‌تر شود. دلیلش را اینجا نوشته‌ایم.",
+  heading: "چرا مجموعه کوچک می‌ماند",
+  lead: "نُه قطعه، و قرار نیست هر فصل بیشتر شود. دلیلش را اینجا نوشته‌ایم.",
   body: [
-    "بیشتر برندهای مراقبت از پوست با افزودن محصول رشد می‌کنند. ما تصمیم گرفتیم با بازبینی رشد کنیم: هر فرمولی که در مجموعه می‌ماند دوباره خوانده می‌شود، و اگر جای بهتری برایش پیدا نکنیم، همان‌طور می‌ماند.",
-    "این یعنی گاهی ماه‌ها چیز تازه‌ای منتشر نمی‌شود. برای ما این نشانهٔ کندی نیست؛ نشانهٔ این است که جای خالی واقعی پیدا نکرده‌ایم.",
-    "مجموعه‌ای که کوچک می‌ماند یعنی می‌توانیم هر محصول را بشناسیم — و یعنی شما هم می‌توانید. چند نام را می‌شود به خاطر سپرد؛ پنجاه‌تا را نه.",
+    "هر قطعه با دست ساخته می‌شود، و این یعنی زمان ساخت را نمی‌شود کوتاه کرد. می‌شود به‌جایش تعداد را بالا برد و کار را سپرد، ولی آن‌وقت چیزی که تحویل می‌دهیم دیگر همان چیزی نیست که رویش اسم گذاشته‌ایم.",
+    "پس مجموعه کوچک می‌ماند و به‌جای اضافه‌کردن، بازبینی می‌کنیم: هر قطعه‌ای که در مجموعه هست دوباره ساخته و دوباره سنجیده می‌شود، و اگر چیزی در آن بهتر نمی‌شود، همان‌طور می‌ماند.",
+    "سفارش اختصاصی جای رشد ماست. کتیبه با متن سفارش‌دهنده کنده می‌شود و ترنج با نقش و اندازهٔ او ساخته می‌شود — همان نُه قطعه، با یک تصمیم که مال شماست.",
   ],
   image: {
-    src: "/media/gallery-04.svg",
-    alt: "گوشه‌ای از میز کار پرنیان در نور صبح",
+    src: "/media/gallery-05.svg",
+    alt: "میز کار زرگری زرنگار در نور اول صبح",
     ratio: "4/3",
   },
   seo: {
     title: "دربارهٔ ما",
-    description: "چرا مجموعهٔ پرنیان کوچک است، و چطور می‌توانید با ما تماس بگیرید.",
+    description: "چرا مجموعهٔ زرنگار کوچک می‌ماند، و چطور می‌توانید سفارش بدهید.",
   },
 };
 
@@ -225,12 +227,12 @@ export const about: AboutContent = {
  * WhatsApp first, Instagram second, then the direct details. No form: a form
  * needs a third-party backend to post to, and wiring a real hosted endpoint is
  * outside what a presented template needs (§51). The mechanism that exists is
- * the one the product pages already use.
+ * the one the piece pages already use.
  */
 export const contact: ContactContent = {
   eyebrow: "تماس",
   heading: "ساده‌ترین راه، پیام مستقیم است",
-  lead: "برای پرسش دربارهٔ محصول‌ها یا انتخاب روتین، در واتساپ بنویسید.",
+  lead: "برای پرسش دربارهٔ یک قطعه، یا برای سفارش اختصاصی، در واتساپ بنویسید.",
   instagramLabel: "اینستاگرام",
   labels: {
     city: "شهر",
@@ -240,11 +242,11 @@ export const contact: ContactContent = {
 };
 
 export const cta: CtaContent = {
-  eyebrow: "شروع کنید",
-  heading: "نمی‌دانید از کجا شروع کنید؟",
-  body: "چند پرسش کوتاه دربارهٔ پوست و روتین فعلی‌تان کافی است تا مشخص شود کدام محصول‌ها به کارتان می‌آیند.",
-  primary: { label: "دریافت مشاوره", href: "/about/#contact" },
-  secondary: { label: "مشاهدهٔ محصولات", href: "/products/" },
+  eyebrow: "سفارش اختصاصی",
+  heading: "قطعه‌ای در ذهن دارید؟",
+  body: "نقش، سنگ، اندازه و متن را با هم انتخاب می‌کنیم. پیش از شروع، وزن تقریبی و زمان ساخت را می‌گوییم.",
+  primary: { label: "سفارش و مشاوره", href: "/about/#contact" },
+  secondary: { label: "دیدن قطعه‌ها", href: "/products/" },
   image: {
     src: "/media/cta-field.svg",
     alt: "",
