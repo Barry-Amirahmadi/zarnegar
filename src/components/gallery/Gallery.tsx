@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { sortedGallery } from "@/content/gallery";
-import { gallery } from "@/content/sections";
+import { bandTones, gallery } from "@/content/sections";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { ShadeClaim } from "@/components/motion/ShadeClaim";
 import { Button } from "@/components/ui/Button";
 import { GalleryTile } from "./GalleryTile";
 import { GalleryLightbox } from "./GalleryLightbox";
@@ -39,7 +40,8 @@ export function Gallery() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="gallery" aria-labelledby="gallery-heading" className="ground-light-deep">
+    <section id="gallery" aria-labelledby="gallery-heading" className="ground-light-deep shade-wash">
+      <ShadeClaim tone={bandTones.gallery} />
       <div className="container py-[var(--section-y)]">
         <SectionHeading
           id="gallery-heading"

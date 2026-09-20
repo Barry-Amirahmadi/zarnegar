@@ -22,6 +22,10 @@ import { withBasePath } from "@/lib/basePath";
  * collection, and on the collection page itself that would be the same dead end
  * the paragraph above is about. Passing `null` drops it and leaves one action.
  */
+/* The one band that does not join the ambient field. Its atmosphere is its
+   own full-bleed photograph, and the wash paints at `z-index: -1` — behind
+   that image, where nothing can see it. A claim with no paint would be dead
+   code dressed as consistency. */
 export function CtaSection({ secondary = cta.secondary }: { secondary?: NavItem | null }) {
   return (
     <section

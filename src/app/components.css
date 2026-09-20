@@ -455,3 +455,107 @@
 .product-views__thumb .img-frame {
   box-shadow: none;
 }
+
+/* ---- Engraving preview — this site's signature component ---------------- */
+/* The plate is 260 x 180 in the viewBox because the piece is 26 x 18 mm: the
+   preview is the object's own proportion, not a convenient rectangle.
+
+   Colours are measured, like everywhere else. The cut line is `shabaq` on the
+   `zar-bright` centre panel at 5.22:1 — the panel is the *lighter* gold and the
+   frame the deeper one, which is the way round that carries dark text. The
+   first arrangement had them swapped and put the cut at 3.75:1. */
+
+.engraving {
+  margin-top: var(--section-y-tight);
+  border-top: 1px solid var(--color-line-dark);
+  padding-top: var(--space-7);
+}
+
+.engraving__body {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .engraving__body {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--space-7);
+  }
+}
+
+.engraving__plate {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.engraving__metal {
+  fill: var(--color-zar);
+}
+.engraving__border {
+  fill: none;
+  stroke: var(--color-zar-deep);
+  stroke-width: 3;
+}
+.engraving__field {
+  fill: var(--color-zar-bright);
+}
+
+.engraving__cut {
+  fill: var(--color-shabaq);
+  font-family: var(--font-display);
+  font-size: 30px;
+  /* The line is cut, so it sits in the metal rather than on it: one hairline
+     of the deep gold under the glyphs, no blur, no glow. */
+  paint-order: stroke fill;
+  stroke: color-mix(in oklab, var(--color-zar-deep) 55%, transparent);
+  stroke-width: 1.5;
+}
+
+.engraving__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.engraving__input {
+  /* 44px minimum, and it is a real box rather than an underline: an underline
+     input on a dark ground reads as a rule the reader is not meant to touch. */
+  min-height: 2.75rem;
+  width: 100%;
+  padding: 0.5rem 0.875rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-chalk);
+  background-color: var(--color-shabaq-raised);
+  border: 1px solid var(--color-line-dark-strong);
+  border-radius: 2px;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.engraving__input:hover {
+  border-color: var(--color-zar-bright);
+}
+
+.engraving__help {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.engraving__count {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-zar-bright);
+}
+
+.engraving__error {
+  color: var(--color-zar-bright);
+}
+
+.engraving__actions {
+  margin-top: var(--space-2);
+}
+

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import { ToneSwatch } from "@/components/ui/ToneSwatch";
 import { ProductViews } from "@/components/products/ProductViews";
+import { EngravingPreview } from "@/components/products/EngravingPreview";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 
@@ -31,7 +32,7 @@ export function ProductHero({ product }: { product: ResolvedProduct }) {
 
   return (
     <section aria-labelledby="product-name" className="ground-dark on-dark">
-      <ShadeField initialTone={product.tone}>
+      <ShadeField initialTone={product.tone} className="shade-wash">
         <div className="container py-[var(--section-y-tight)]">
           <nav aria-label={productPage.breadcrumbLabel} className="mb-10">
             <ol className="t-meta flex flex-wrap items-center gap-x-2">
@@ -113,6 +114,12 @@ export function ProductHero({ product }: { product: ResolvedProduct }) {
               </Reveal>
             </div>
           </div>
+
+          {/* Full width, below both columns: the plate wants the room, and the
+              inquiry it produces is not the one above — that button asks about
+              the piece, this one arrives with the buyer's line already written.
+              Renders nothing unless the piece is engravable. */}
+          {product.engravable && <EngravingPreview product={product} />}
         </div>
       </ShadeField>
     </section>

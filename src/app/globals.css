@@ -220,19 +220,26 @@
 
   /* ---- Grounds ---------------------------------------------------------- */
 
+  /* Each ground carries its own ambient-wash ceiling. See the shade block
+     below for how the four numbers were solved rather than chosen. */
+
   .ground-light {
     background-color: var(--color-sadaf);
+    --shade-strength: 0.2;
   }
   .ground-light-deep {
     background-color: var(--color-sadaf-deep);
+    --shade-strength: 0.07;
   }
   .ground-dark {
     background-color: var(--color-shabaq);
     color: var(--color-chalk);
+    --shade-strength: 0.13;
   }
   .ground-darkest {
     background-color: var(--color-shabaq-deep);
     color: var(--color-chalk);
+    --shade-strength: 0.18;
   }
 
   /* ---- Depth ------------------------------------------------------------
@@ -355,12 +362,34 @@
   }
 
   /* ---- Signature: ambient shade ----------------------------------------- */
-  /* Every product carries its own shade. As one scrolls into view it bleeds
-     into the atmosphere behind the showcase, so the page quietly takes the
-     colour of whatever you are looking at. Capped at 0.20 opacity, which
-     holds secondary text at 5.2:1 over the lightest product tone — measured,
-     not assumed, because a wash that quietly eats contrast is the usual way an
-     effect like this goes wrong. */
+  /* Every piece carries its own shade, and the page quietly takes the colour
+     of whatever is being read.
+
+     Two classes, deliberately separate:
+
+       .shade-field   owns the value. One per page. It sets --shade, which
+                      inherits all the way down, and it is the element the
+                      transition runs on, so the interpolation happens once
+                      rather than once per band.
+       .shade-wash    paints it. Any number per page.
+
+     They are split because the strength is not one number. A wash that is
+     safe on jet is muddy on bone, and one that is safe on bone eats the
+     secondary ink on sand. So each ground declares its own ceiling, and all
+     four were **solved**, not picked: the largest opacity at which every text
+     token on that ground still clears 4.6:1 against the worst of the thirteen
+     tones the catalogue and the gallery actually contain.
+
+       ground-light       0.20   binding: ink-3 on the darkest tone   4.60:1
+       ground-light-deep  0.07   binding: ink-3 on the darkest tone   4.61:1
+       ground-dark        0.13   binding: chalk-2 on the lightest     4.60:1
+       ground-darkest     0.18   binding: chalk-2 on the lightest     4.62:1
+
+     The dark figure is a fix, not a tuning. The showcase shipped at 0.20,
+     carried over from PARNIAN whose tones were cooler and lighter; measured
+     against ZARNEGAR's, that put chalk-2 at 4.20:1 — under AA, on the one
+     band where the effect was visible at all. The old comment here claimed
+     5.2:1, which was true of the palette it was written for and of no other. */
 
   .shade-field {
     position: relative;
@@ -368,13 +397,18 @@
     transition: --shade var(--dur-ambient) var(--ease-in-out);
   }
 
-  .shade-field::before {
+  .shade-wash {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .shade-wash::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.2;
+    opacity: var(--shade-strength, 0.13);
     background-image:
       radial-gradient(
         76% 54% at 74% 34%,
@@ -386,6 +420,14 @@
         color-mix(in oklab, var(--shade) 40%, transparent),
         transparent 72%
       );
+  }
+
+  /* The sentinel a band uses to claim the field as it passes. Spans its
+     section so the claim tracks the band, not a point inside it. */
+  .shade-claim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
   }
 
   /* ---- Rules ------------------------------------------------------------ */

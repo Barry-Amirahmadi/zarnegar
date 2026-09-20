@@ -1,8 +1,9 @@
-import { brand, values } from "@/content/sections";
+import { bandTones, brand, values } from "@/content/sections";
 import { Section } from "@/components/layout/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import { Reveal } from "@/components/motion/Reveal";
+import { ShadeClaim } from "@/components/motion/ShadeClaim";
 
 /**
  * How the brand works.
@@ -17,7 +18,8 @@ import { Reveal } from "@/components/motion/Reveal";
  */
 export function ValuesSection() {
   return (
-    <Section id="brand" ground="light" aria-labelledby="brand-heading">
+    <Section id="brand" ground="light" aria-labelledby="brand-heading" className="shade-wash">
+      <ShadeClaim tone={bandTones.values} />
       <div className="grid-editorial">
         {/* Ledger — first six columns, the right side of the page */}
         <div className="col-span-4 md:col-span-8 lg:col-span-7">

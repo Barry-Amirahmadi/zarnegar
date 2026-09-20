@@ -21,7 +21,7 @@ import { CATALOGUE_ARRANGEMENT, CollectionItem } from "./CollectionItem";
 export function CollectionGrid({ products }: { products: ResolvedProduct[] }) {
   return (
     <section aria-label={collection.listLabel} className="ground-dark on-dark">
-      <ShadeField initialTone={products[0]?.tone ?? FALLBACK_TONE}>
+      <ShadeField initialTone={products[0]?.tone ?? FALLBACK_TONE} className="shade-wash">
         <div className="container py-[var(--section-y)]">
           <div className="grid-editorial collection-grid items-start">
             {/* Every product takes the same frame except the one declared

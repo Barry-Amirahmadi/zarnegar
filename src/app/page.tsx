@@ -1,5 +1,7 @@
 import { site } from "@/content/site";
+import { bandTones } from "@/content/sections";
 import { pageMetadata } from "@/lib/seo";
+import { ShadeField } from "@/components/motion/ShadeField";
 import { Hero } from "@/components/hero/Hero";
 import { Statement } from "@/components/sections/Statement";
 import { ProductShowcase } from "@/components/products/ProductShowcase";
@@ -11,6 +13,11 @@ import { CtaSection } from "@/components/sections/CtaSection";
  * Homepage.
  *
  * The scroll is a sequence of changing rhythms, not one component repeated:
+ *
+ * One ambient field spans the whole scroll rather than lighting up only over
+ * the showcase. Each band claims it in turn, so the colour is continuous from
+ * the first screen to the last instead of appearing halfway down and vanishing
+ * again — which is what it did while the field belonged to one section.
  *
  *   Hero       light,  asymmetric, image-led
  *   Statement  sand,   one sentence, mostly air
@@ -28,13 +35,13 @@ export const metadata = pageMetadata({
 
 export default function HomePage() {
   return (
-    <>
+    <ShadeField initialTone={bandTones.hero}>
       <Hero />
       <Statement />
       <ProductShowcase />
       <ValuesSection />
       <Gallery />
       <CtaSection />
-    </>
+    </ShadeField>
   );
 }

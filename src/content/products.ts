@@ -340,6 +340,7 @@ export const products: Product[] = [
       { label: "سنگ", value: "بدون نگین" },
       { label: "اندازه", value: "۲۶ در ۱۸ میلی‌متر" },
     ],
+    engravable: true,
     tone: "#6E5A34",
     image: {
       src: "/media/piece-katibeh.svg",

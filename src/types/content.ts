@@ -83,6 +83,14 @@ export interface Product {
    * simply renders no thumbnail strip.
    */
   views?: MediaAsset[];
+  /**
+   * Whether this piece is finished with text the buyer chooses.
+   *
+   * Only the plate is, today. It is a flag rather than a category because it
+   * describes what the atelier will do to the object, not what the object is:
+   * a future signet ring would be engravable and would still be a ring.
+   */
+  engravable?: boolean;
   /** Optional for the same reason as `tone`. */
   layout?: ProductLayout;
   status: "published" | "draft";
@@ -115,6 +123,50 @@ export interface GalleryItem {
   image: MediaAsset;
   /** Manual sort position, as an editor would set it. */
   order: number;
+}
+
+/**
+ * The ambient tone each band of the homepage claims.
+ *
+ * A product's tone is a property of the object, so it lives on the product.
+ * A band has no object — it is a stretch of the page — so its tone is an
+ * editorial choice about the temperature of that stretch, and it belongs in
+ * the copy deck beside the words it sits behind.
+ */
+export interface BandTones {
+  hero: string;
+  statement: string;
+  values: string;
+  gallery: string;
+  cta: string;
+}
+
+/**
+ * The custom-engraving preview — see `EngravingPreview`.
+ *
+ * Copy, not interface strings: the brand decides what it calls the text it
+ * cuts, and how long a line it will cut.
+ */
+export interface EngravingContent {
+  eyebrow: string;
+  heading: string;
+  lead: string;
+  /** Visible label on the field. Never a placeholder standing in for one. */
+  inputLabel: string;
+  /** Sits under the field, and is what the counter is appended to. */
+  helper: string;
+  /** Hard limit, in characters. What the plate can physically hold. */
+  maxLength: number;
+  /** Shown if the limit is exceeded — a paste can outrun `maxlength`. */
+  tooLong: string;
+  /** Joins position and total in the counter, e.g. «۷ از ۱۸». */
+  counterJoin: string;
+  /** Label on the inquiry button. */
+  submitLabel: string;
+  /** `{product}` and `{text}` are replaced at render time. */
+  message: string;
+  /** Used instead when the field is empty. Takes `{product}` only. */
+  emptyMessage: string;
 }
 
 export interface ValueItem {

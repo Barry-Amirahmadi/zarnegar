@@ -23,7 +23,7 @@ export function RelatedProducts({ products }: { products: ResolvedProduct[] }) {
 
   return (
     <section aria-labelledby="related-heading" className="ground-dark on-dark">
-      <ShadeField initialTone={products[0]?.tone ?? FALLBACK_TONE}>
+      <ShadeField initialTone={products[0]?.tone ?? FALLBACK_TONE} className="shade-wash">
         <div className="container py-[var(--section-y)]">
           <SectionHeading
             id="related-heading"

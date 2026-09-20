@@ -210,6 +210,91 @@ test("a piece's other views render, open, and are described", async ({ page }) =
   expect(consoleErrors, "console errors").toEqual([]);
 });
 
+test("the engraving preview cuts what is typed and carries it into the inquiry", async ({ page }) => {
+  const { consoleErrors, failed } = watch(page);
+
+  await page.goto(`${BASE}/products/katibeh/`);
+
+  const field = page.locator(".engraving__input");
+  const cut = page.locator(".engraving__cut");
+  const action = page.locator(".engraving__actions a");
+
+  // The plate ships with a cut border and an empty middle, and the copy says
+  // so. An empty plate is the product, not a missing state.
+  await expect(cut).toHaveText("");
+
+  // A visible label, not a placeholder doing a label's job — a placeholder is
+  // gone exactly when the field has content and the reader needs it most.
+  const labelled = await field.evaluate((el) => {
+    const id = el.getAttribute("id") ?? "";
+    const label = document.querySelector(`label[for="${id}"]`);
+    return { text: label?.textContent?.trim() ?? "", placeholder: el.getAttribute("placeholder") };
+  });
+  expect(labelled.text.length, "visible label").toBeGreaterThan(0);
+  expect(labelled.placeholder, "no placeholder standing in for a label").toBeNull();
+
+  // 44px minimum. The field is the only text input on the site, so nothing
+  // else enforces this for it.
+  const box = await field.boundingBox();
+  expect(box?.height ?? 0, "touch target height").toBeGreaterThanOrEqual(44);
+
+  await field.fill("یادگار");
+  await expect(cut).toHaveText("یادگار");
+
+  // The counter runs in Persian digits, like every other number on the site.
+  await expect(page.locator(".engraving__count")).toHaveText(/^۶\s/);
+
+  // The point of the component: the line the reader wrote reaches the inquiry
+  // without anyone retyping it. No price, no cart — the channel that already
+  // existed, carrying one more fact.
+  const href = (await action.getAttribute("href")) ?? "";
+  expect(href).toContain("wa.me/");
+  expect(decodeURIComponent(href)).toContain("یادگار");
+  expect(decodeURIComponent(href)).toContain("گردن‌آویز کتیبه");
+
+  // Only the plate is engravable, so no other piece may grow the section.
+  await page.goto(`${BASE}/products/mahtab/`);
+  await expect(page.locator(".engraving")).toHaveCount(0);
+
+  expect(failed, "failed requests").toEqual([]);
+  expect(consoleErrors, "console errors").toEqual([]);
+});
+
+test("the ambient shade spans the page and stays under its measured ceiling", async ({ page }) => {
+  const { consoleErrors, failed } = watch(page);
+
+  await page.goto(`${BASE}/`);
+
+  // One field for the whole scroll. Before this it belonged to the showcase,
+  // so the colour appeared halfway down the page and vanished again.
+  await expect(page.locator(".shade-field")).toHaveCount(1);
+
+  // Each ground carries its own ceiling, solved so every text token on it
+  // still clears 4.6:1 against the worst tone in the catalogue. A single
+  // number cannot be right on both bone and jet.
+  const ceilings: Record<string, number> = {
+    "ground-light": 0.2,
+    "ground-light-deep": 0.07,
+    "ground-dark": 0.13,
+  };
+  const measured = await page.locator(".shade-wash").evaluateAll((els) =>
+    els.map((el) => ({
+      ground: [...el.classList].find((c) => c.startsWith("ground-")) ?? "",
+      opacity: getComputedStyle(el, "::before").opacity,
+    })),
+  );
+  expect(measured.length, "bands painting the wash").toBeGreaterThanOrEqual(4);
+  for (const band of measured) {
+    expect(Number(band.opacity), `${band.ground} wash strength`).toBeCloseTo(
+      ceilings[band.ground],
+      3,
+    );
+  }
+
+  expect(failed, "failed requests").toEqual([]);
+  expect(consoleErrors, "console errors").toEqual([]);
+});
+
 test("the collection page lists the catalogue and its index resolves", async ({ page }) => {
   const { consoleErrors, failed } = watch(page);
 

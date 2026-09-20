@@ -1,6 +1,7 @@
-import { statement } from "@/content/sections";
+import { bandTones, statement } from "@/content/sections";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/motion/Reveal";
+import { ShadeClaim } from "@/components/motion/ShadeClaim";
 
 /**
  * A pause between the hero and the collection.
@@ -11,7 +12,8 @@ import { Reveal } from "@/components/motion/Reveal";
  */
 export function Statement() {
   return (
-    <Section ground="light-deep" rhythm="tight">
+    <Section ground="light-deep" rhythm="tight" className="shade-wash">
+      <ShadeClaim tone={bandTones.statement} />
       <div className="grid-editorial">
         <div className="col-span-4 md:col-span-7 lg:col-start-2 lg:col-span-9">
           <Reveal>

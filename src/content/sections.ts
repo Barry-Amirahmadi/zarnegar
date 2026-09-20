@@ -1,10 +1,12 @@
 import type {
   AboutContent,
+  BandTones,
   BrandContent,
   CollectionContent,
   ContactContent,
   CtaContent,
   GalleryContent,
+  EngravingContent,
   GalleryPageContent,
   HeroContent,
   InquiryContent,
@@ -56,6 +58,22 @@ export const hero: HeroContent = {
     ratio: "1/1",
   },
   insetCaption: "نقش ترنج، قلم‌زده",
+};
+
+/**
+ * What colour each band of the homepage lends the page as you pass through it.
+ *
+ * Warm throughout and narrow on purpose. The pieces themselves supply the only
+ * real departures — the green of آویشن, the blue of نیلوفر — and they earn them
+ * by being the subject. If the bands ranged as widely, the page would read as a
+ * colour sequence rather than as a workshop with a light in it.
+ */
+export const bandTones: BandTones = {
+  hero: "#A8834A",
+  statement: "#6E5A34",
+  values: "#8A6E3C",
+  gallery: "#B29A66",
+  cta: "#8A6E3C",
 };
 
 export const statement: StatementContent = {
@@ -126,6 +144,32 @@ export const inquiry: InquiryContent = {
   generalMessage: "سلام. سؤالی دربارهٔ قطعه‌های زرنگار داشتم.",
   /** Appended for screen readers to any link that leaves the site. */
   newWindow: "در پنجرهٔ تازه باز می‌شود",
+};
+
+/**
+ * Custom engraving.
+ *
+ * The atelier already says, in three separate places, that the buyer writes
+ * the text and the atelier only supplies the border. This is that promise made
+ * operable: the reader types the line and sees it cut, in the same face the
+ * border is cut in, before they ever open a conversation.
+ *
+ * It claims nothing. There is no price, no turnaround, no "approved" state —
+ * it shows a piece of text in a shape, and hands the text to the inquiry that
+ * already existed.
+ */
+export const engraving: EngravingContent = {
+  eyebrow: "سفارش اختصاصی",
+  heading: "متن را بنویسید، روی صفحه ببینید",
+  lead: "حاشیه ثابت است و مرکز خالی. هر چه اینجا بنویسید با همان قلمی کنده می‌شود که حاشیه کنده شده.",
+  inputLabel: "متن کتیبه",
+  helper: "یک نام، یک تاریخ، یا یک بیت کوتاه.",
+  maxLength: 18,
+  tooLong: "متن از اندازهٔ صفحه بلندتر است. کوتاهش کنید.",
+  counterJoin: "از",
+  submitLabel: "فرستادن این متن در واتساپ",
+  message: "سلام. برای «{product}»، متن «{text}» را می‌خواستم.",
+  emptyMessage: "سلام. دربارهٔ «{product}» و متن سفارشی‌اش سؤال داشتم.",
 };
 
 export const brand: BrandContent = {

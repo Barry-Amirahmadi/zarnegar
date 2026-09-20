@@ -1,9 +1,10 @@
-import { hero } from "@/content/sections";
+import { bandTones, hero } from "@/content/sections";
 import { site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import { Reveal } from "@/components/motion/Reveal";
+import { ShadeClaim } from "@/components/motion/ShadeClaim";
 
 /**
  * The hero states the thesis: a small collection, made slowly.
@@ -21,7 +22,8 @@ import { Reveal } from "@/components/motion/Reveal";
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-[var(--section-y-tight)] lg:pt-14">
+    <section className="ground-light shade-wash overflow-hidden pt-8 pb-[var(--section-y-tight)] lg:pt-14">
+      <ShadeClaim tone={bandTones.hero} />
       <div className="container">
         <div className="grid-editorial">
           {/* 1 — the claim */}
