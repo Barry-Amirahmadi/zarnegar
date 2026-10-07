@@ -20,7 +20,7 @@ export const galleryItems: GalleryItem[] = [
     category: "کارگاه",
     caption: "نور از پنجرهٔ شمالی",
     image: {
-      src: "/media/gallery-01.svg",
+      src: "/media/gallery-01.jpg",
       alt: "دست در حال قلم‌زنی روی صفحهٔ طلا",
       ratio: "4/5",
     },
@@ -31,7 +31,7 @@ export const galleryItems: GalleryItem[] = [
     title: "فیروزه، پیش از نشاندن",
     category: "سنگ",
     image: {
-      src: "/media/gallery-02.svg",
+      src: "/media/gallery-02.jpg",
       alt: "چند قطعه فیروزه روی پارچهٔ روشن",
       ratio: "4/5",
     },
@@ -43,7 +43,7 @@ export const galleryItems: GalleryItem[] = [
     category: "قطعه",
     caption: "بدون اصلاح رنگ",
     image: {
-      src: "/media/gallery-03.svg",
+      src: "/media/gallery-03.jpg",
       alt: "گردن‌آویز ترنج پس از پایان کار",
       ratio: "4/5",
     },
@@ -54,7 +54,7 @@ export const galleryItems: GalleryItem[] = [
     title: "لبهٔ نشستن نگین",
     category: "جزئیات",
     image: {
-      src: "/media/gallery-04.svg",
+      src: "/media/gallery-04.jpg",
       alt: "نمای بسیار نزدیک از لبهٔ پیوستهٔ یک نگین",
       ratio: "4/5",
     },
@@ -65,7 +65,7 @@ export const galleryItems: GalleryItem[] = [
     title: "میز کار، اول صبح",
     category: "کارگاه",
     image: {
-      src: "/media/gallery-05.svg",
+      src: "/media/gallery-05.jpg",
       alt: "میز کار زرگری با ابزار چیده‌شده",
       ratio: "4/5",
     },
@@ -77,7 +77,7 @@ export const galleryItems: GalleryItem[] = [
     category: "سنگ",
     caption: "همان نوری که انگشتر در آن دیده می‌شود",
     image: {
-      src: "/media/gallery-06.svg",
+      src: "/media/gallery-06.jpg",
       alt: "سنگ ماه که در نور مایل رنگ برمی‌گرداند",
       ratio: "4/5",
     },
@@ -88,7 +88,7 @@ export const galleryItems: GalleryItem[] = [
     title: "گلبرگ، پیش از خم‌شدن",
     category: "جزئیات",
     image: {
-      src: "/media/gallery-07.svg",
+      src: "/media/gallery-07.jpg",
       alt: "گلبرگ بریده‌شدهٔ گوشوارهٔ نیلوفر پیش از خم‌شدن",
       ratio: "4/5",
     },
@@ -99,7 +99,7 @@ export const galleryItems: GalleryItem[] = [
     title: "مجموعه، کنار هم",
     category: "قطعه",
     image: {
-      src: "/media/gallery-08.svg",
+      src: "/media/gallery-08.jpg",
       alt: "چند قطعه از مجموعهٔ زرنگار کنار هم",
       ratio: "4/5",
     },

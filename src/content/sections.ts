@@ -48,12 +48,12 @@ export const hero: HeroContent = {
   secondary: { label: "دربارهٔ کارگاه", href: "/#brand" },
   scrollHint: "پیمایش کنید",
   image: {
-    src: "/media/hero-main.svg",
+    src: "/media/hero-main.jpg",
     alt: "قطعه‌ای از مجموعهٔ زرنگار روی زمینهٔ تیره",
     ratio: "4/5",
   },
   inset: {
-    src: "/media/hero-inset.svg",
+    src: "/media/hero-inset.jpg",
     alt: "نمای نزدیک از نقش قلم‌زده روی طلا",
     ratio: "1/1",
   },
@@ -177,7 +177,7 @@ export const brand: BrandContent = {
   heading: "روش کار ما",
   lead: "چهار چیزی که در هر قطعه، از انتخاب سنگ تا آخرین پرداخت، به آن برمی‌گردیم.",
   image: {
-    src: "/media/values-texture.svg",
+    src: "/media/values-texture.jpg",
     alt: "نمای نزدیک از سطح کارشدهٔ یکی از قطعه‌های زرنگار",
     ratio: "3/4",
   },
@@ -255,7 +255,7 @@ export const about: AboutContent = {
     "سفارش اختصاصی جای رشد ماست. کتیبه با متن سفارش‌دهنده کنده می‌شود و ترنج با نقش و اندازهٔ او ساخته می‌شود — همان نُه قطعه، با یک تصمیم که مال شماست.",
   ],
   image: {
-    src: "/media/gallery-05.svg",
+    src: "/media/gallery-05.jpg",
     alt: "میز کار زرگری زرنگار در نور اول صبح",
     ratio: "4/3",
   },

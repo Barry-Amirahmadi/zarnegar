@@ -66,22 +66,10 @@ export const products: Product[] = [
     ],
     tone: "#8C93A8",
     image: {
-      src: "/media/piece-mahtab.svg",
+      src: "/media/piece-mahtab.jpg",
       alt: "انگشتر مهتاب، نگین سنگ ماه در قاب پیوسته",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-mahtab-b.svg",
-        alt: "انگشتر مهتاب از نیم‌رخ، جایی که حلقه پشت انگشت باریک می‌شود",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-mahtab-c.svg",
-        alt: "لبهٔ پیوستهٔ نگین انگشتر مهتاب از نمای نزدیک",
-        ratio: "1/1",
-      },
-    ],
     layout: "tall",
     status: "published",
   },
@@ -106,17 +94,10 @@ export const products: Product[] = [
     ],
     tone: "#A9AEB0",
     image: {
-      src: "/media/piece-shabnam.svg",
+      src: "/media/piece-shabnam.jpg",
       alt: "گردن‌آویز شبنم، آویز قطره‌ای روی زنجیر باریک",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-shabnam-b.svg",
-        alt: "آویز شبنم از پشت، محل اتصال به زنجیر",
-        ratio: "1/1",
-      },
-    ],
     layout: "wide",
     status: "published",
   },
@@ -141,22 +122,10 @@ export const products: Product[] = [
     ],
     tone: "#5E7356",
     image: {
-      src: "/media/piece-avishan.svg",
+      src: "/media/piece-avishan.jpg",
       alt: "گوشوارهٔ آویشن، دو ساقهٔ باریک با برگ‌های ریز",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-avishan-b.svg",
-        alt: "برگ‌های گوشوارهٔ آویشن از نمای نزدیک",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-avishan-c.svg",
-        alt: "قلاب پشت‌گوشی گوشوارهٔ آویشن",
-        ratio: "1/1",
-      },
-    ],
     layout: "tall",
     status: "published",
   },
@@ -181,22 +150,10 @@ export const products: Product[] = [
     ],
     tone: "#4A4741",
     image: {
-      src: "/media/piece-khara.svg",
+      src: "/media/piece-khara.jpg",
       alt: "انگشتر خارا، حلقهٔ پهن با رویهٔ چکش‌خورده",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-khara-b.svg",
-        alt: "رویهٔ چکش‌خوردهٔ انگشتر خارا در نور مایل",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-khara-c.svg",
-        alt: "انگشتر خارا از نیم‌رخ، پهنای یکسان در تمام دور حلقه",
-        ratio: "1/1",
-      },
-    ],
     layout: "compact",
     status: "published",
   },
@@ -222,27 +179,10 @@ export const products: Product[] = [
     ],
     tone: "#A8834A",
     image: {
-      src: "/media/piece-toranj.svg",
+      src: "/media/piece-toranj.jpg",
       alt: "گردن‌آویز ترنج، نقش قلم‌زده روی صفحهٔ گرد با نگین فیروزه",
       ratio: "8/5",
     },
-    views: [
-      {
-        src: "/media/piece-toranj-b.svg",
-        alt: "نقش قلم‌زدهٔ ترنج از نمای نزدیک",
-        ratio: "8/5",
-      },
-      {
-        src: "/media/piece-toranj-c.svg",
-        alt: "نگین فیروزهٔ مرکز ترنج",
-        ratio: "8/5",
-      },
-      {
-        src: "/media/piece-toranj-d.svg",
-        alt: "پشت صفحهٔ ترنج و حلقهٔ اتصال زنجیر",
-        ratio: "8/5",
-      },
-    ],
     layout: "feature",
     status: "published",
   },
@@ -267,17 +207,10 @@ export const products: Product[] = [
     ],
     tone: "#9A6B33",
     image: {
-      src: "/media/piece-ghatreh.svg",
+      src: "/media/piece-ghatreh.jpg",
       alt: "گوشوارهٔ قطره، دو عقیق زرد آویخته از میخ کوتاه",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-ghatreh-b.svg",
-        alt: "سطح مات عقیق زرد گوشوارهٔ قطره از نزدیک",
-        ratio: "1/1",
-      },
-    ],
     layout: "wide",
     status: "published",
   },
@@ -302,22 +235,10 @@ export const products: Product[] = [
     ],
     tone: "#A88B45",
     image: {
-      src: "/media/piece-partow.svg",
+      src: "/media/piece-partow.jpg",
       alt: "انگشتر پرتو، نگین سیترین در تراش پله‌ای",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-partow-b.svg",
-        alt: "پله‌های تراش سیترین انگشتر پرتو از بالا",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-partow-c.svg",
-        alt: "انگشتر پرتو از نیم‌رخ، باریکی حلقه زیر نگین",
-        ratio: "1/1",
-      },
-    ],
     layout: "tall",
     status: "published",
   },
@@ -343,22 +264,10 @@ export const products: Product[] = [
     engravable: true,
     tone: "#6E5A34",
     image: {
-      src: "/media/piece-katibeh.svg",
+      src: "/media/piece-katibeh.jpg",
       alt: "گردن‌آویز کتیبه، صفحهٔ مستطیل با حاشیهٔ کنده‌کاری‌شده",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-katibeh-b.svg",
-        alt: "حاشیهٔ کنده‌کاری‌شدهٔ کتیبه از نمای نزدیک",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-katibeh-c.svg",
-        alt: "مرکز خالی صفحهٔ کتیبه، پیش از نوشتن متن",
-        ratio: "1/1",
-      },
-    ],
     layout: "compact",
     status: "published",
   },
@@ -383,22 +292,10 @@ export const products: Product[] = [
     ],
     tone: "#3F5D70",
     image: {
-      src: "/media/piece-nilufar.svg",
+      src: "/media/piece-nilufar.jpg",
       alt: "گوشوارهٔ نیلوفر، گلبرگ‌های باز با مغز لاجورد",
       ratio: "1/1",
     },
-    views: [
-      {
-        src: "/media/piece-nilufar-b.svg",
-        alt: "گلبرگ‌های گوشوارهٔ نیلوفر از زاویهٔ مایل",
-        ratio: "1/1",
-      },
-      {
-        src: "/media/piece-nilufar-c.svg",
-        alt: "مغز لاجورد گوشوارهٔ نیلوفر",
-        ratio: "1/1",
-      },
-    ],
     layout: "tall",
     status: "published",
   },

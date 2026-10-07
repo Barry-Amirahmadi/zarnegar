@@ -1,4 +1,13 @@
 import { test, expect, type Page } from "@playwright/test";
+import { products } from "../src/content/products";
+
+/**
+ * Pass-2 views are hidden: the content carries no `views` until their
+ * photographs exist, so the view-strip test below has nothing to exercise.
+ * It is guarded rather than deleted, and runs again by itself the day the
+ * views are restored to `src/content/products.ts`.
+ */
+const anyViews = products.some((p) => (p.views?.length ?? 0) > 0);
 
 /**
  * Smoke pass — deliberately small.
@@ -168,6 +177,7 @@ test("a product route survives a hard load under the base path", async ({ page }
 });
 
 test("a piece's other views render, open, and are described", async ({ page }) => {
+  test.skip(!anyViews, "views are hidden until the pass-2 photographs exist");
   const { consoleErrors, failed } = watch(page);
 
   await page.goto(`${BASE}/products/mahtab/`);
@@ -567,6 +577,11 @@ test("every control that leaves the mobile menu closes it", async ({ page }, tes
     (testInfo.project.use.viewport?.width ?? 0) >= 1024,
     "the mobile panel does not exist at desktop widths",
   );
+  // One home-page load per panel link, ten in all. Alone that is 12–13 s; with
+  // the photographs in and the rest of the suite running beside it, the same
+  // loads measured 30–37 s and the default 30 s budget failed it two runs in
+  // three. The work is fixed by the panel, so the budget is tripled for it.
+  test.slow();
 
   await page.goto(`${BASE}/`);
 
